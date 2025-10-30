@@ -39,7 +39,7 @@ See `dataset.md`
 
 We have prepared the prebuild index of the evaluated dataset, i.e., LoTTE pooled, and MS MARCO, 
 
-Please refer to https://connectpolyu-my.sharepoint.com/:f:/g/personal/21041743r_connect_polyu_hk/ElyiRI2Y0FNPmoP0ecApAUwB3v3gL_aNSHZaIrifCV_jDA
+TODO
 
 ## Some tips for library installation:
 
