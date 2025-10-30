@@ -327,7 +327,7 @@ if __name__ == '__main__':
     for dataset in dataset_l:
         for build_index_config in build_index_parameter_l:
             embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
-            vec_dim = np.load(os.path.join(embedding_dir, 'base_embedding', f'encoding0_float32.npy')).shape[1]
+            vec_dim = 128
             if vec_dim % 4 != 0:
                 raise Exception(
                     "the vector dimension must be divisible by 4, i.e., each vector size should be the multiple of 128 bit")
