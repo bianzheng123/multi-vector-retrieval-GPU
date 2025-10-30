@@ -14,7 +14,7 @@ The experimental python version is 3.8
 
 1. download the ColBERT pretrain model in https://downloads.cs.stanford.edu/nlp/data/colbert/colbertv2/colbertv2.0.tar.gz
 2. decompress the ColBERT model and move it into the file `{project_file}/multi-vector-retrieval-data/RawData/colbert-pretrain`
-3. `mv {project_file}/multi-vector-retrieval-data /home/{username}/Dataset/multi-vector-retrieval-gpu`
+3. `mv {project_file}/multi-vector-retrieval-data /home/{username}/Dataset/multi-vector-retrieval-GPU`
 4. set username in the following scripts described
 
 Note that you should move the project path as `/home/{username}/`

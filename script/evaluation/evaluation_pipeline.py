@@ -35,7 +35,7 @@ def approximate_solution_compile_load(username: str, dataset: str, compile_file:
     if compile_file:
         util.compile_file(username=username, module_name=module_name, is_debug=is_debug, move_path=move_path)
 
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}/'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}/'
 
     base_embedding_dir = os.path.join(embedding_dir, 'base_embedding')
     vec_dim = np.load(os.path.join(base_embedding_dir, f'encoding0_float32.npy')).shape[1]
@@ -46,10 +46,10 @@ def approximate_solution_compile_load(username: str, dataset: str, compile_file:
 
 
 def load_query(username: str, dataset: str):
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}/'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}/'
     query_l = np.load(os.path.join(embedding_dir, 'query_embedding.npy'))
 
-    rawdata_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData/{dataset}'
+    rawdata_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData/{dataset}'
 
     query_text_filename = os.path.join(rawdata_path, f'document/queries.dev.tsv')
     if os.path.exists(query_text_filename):
@@ -83,7 +83,7 @@ def approximate_solution_retrieval_outter(username: str, dataset: str,
             index=index, retrieval_config=retrieval_config,
             query_l=query_l, topk=topk)
 
-        result_answer_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/answer/'
+        result_answer_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/answer/'
         method_ans_name = f'{dataset}-{module_name}-top{topk}-{build_index_suffix}-{retrieval_suffix}.tsv'
         retrieval_result_filename = os.path.join(result_answer_path, method_ans_name)
         save_retrieval_result(est_dist_l=est_dist_l, est_id_l=est_id_l,
@@ -103,7 +103,7 @@ def approximate_solution_retrieval_outter(username: str, dataset: str,
                             'build_index': build_index_config, 'retrieval': retrieval_config,
                             'search_time': search_time_m, 'search_accuracy': search_accuracy_m}
         method_performance_name = f'{dataset}-retrieval-{module_name}-top{topk}-{build_index_suffix}-{retrieval_suffix}.json'
-        result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+        result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
         performance_filename = os.path.join(result_performance_path, method_performance_name)
         with open(performance_filename, "w") as f:
             json.dump(retrieval_info_m, f)
@@ -115,7 +115,7 @@ def approximate_solution_retrieval_outter(username: str, dataset: str,
         if success_l:
             df['success'] = success_l
         single_query_performance_name = f'{dataset}-retrieval-{module_name}-top{topk}-{build_index_suffix}-{retrieval_suffix}.csv'
-        result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/single_query_performance'
+        result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/single_query_performance'
         single_query_performance_filename = os.path.join(result_performance_path, single_query_performance_name)
         df.to_csv(single_query_performance_filename, index=True)
 
@@ -172,7 +172,7 @@ def cpp_retrieval_outter(username: str, dataset: str,
         if 'n_centroid_f' in retrieval_info_m['build_index']:
             del retrieval_info_m['build_index']['n_centroid_f']
         method_performance_name = f'{dataset}-retrieval-{method_name}-top{topk}-{build_index_suffix}-{retrieval_suffix}.json'
-        result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+        result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
         performance_filename = os.path.join(result_performance_path, method_performance_name)
         with open(performance_filename, "w") as f:
             json.dump(retrieval_info_m, f)
@@ -184,7 +184,7 @@ def cpp_retrieval_outter(username: str, dataset: str,
         if success_l:
             df['success'] = success_l
         single_query_performance_name = f'{dataset}-retrieval-{method_name}-top{topk}-{build_index_suffix}-{retrieval_suffix}.csv'
-        result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/single_query_performance'
+        result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/single_query_performance'
         single_query_performance_filename = os.path.join(result_performance_path, single_query_performance_name)
         df.to_csv(single_query_performance_filename, index=True)
 
@@ -239,7 +239,7 @@ def cpp_retrieval_outter(username: str, dataset: str,
 #         module_name=module_name, compile_file=False,
 #         is_debug=is_debug, move_path=move_path)
 #
-#     index_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Index/{dataset}/'
+#     index_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Index/{dataset}/'
 #     index_filename = os.path.join(index_dir, module_name,
 #                                   f'{dataset}-{module_name}-{build_index_suffix}.index')
 #     if os.path.exists(index_filename) and constructor_load_index and load_index:

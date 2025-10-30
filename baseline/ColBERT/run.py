@@ -50,15 +50,15 @@ def get_n_chunk(base_dir: str):
 
 def build_index_official(username: str, dataset: str, n_centroid_f: str, n_bit: int, sample_pid_f: str,
                          save_embedding: bool):
-    colbert_project_path = f'/home/{username}/multi-vector-retrieval-gpu/baseline/ColBERT'
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    colbert_project_path = f'/home/{username}/multi-vector-retrieval-GPU/baseline/ColBERT'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     pretrain_index_path = os.path.join(raw_data_path, 'colbert-pretrain/colbertv2.0')
     document_data_path = os.path.join(raw_data_path, f'{dataset}/document')
-    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
     base_embedding_path = os.path.join(embedding_path, 'base_embedding')
     query_embedding_filename = os.path.join(embedding_path, 'query_embedding.npy')
-    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Index/{dataset}'
-    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Index/{dataset}'
+    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
 
     n_gpu = torch.cuda.device_count()
     # torch.set_num_threads(12)
@@ -138,15 +138,15 @@ def build_index_official(username: str, dataset: str, n_centroid_f: str, n_bit: 
 
 
 def encode_query_cpu(username: str, dataset: str):
-    colbert_project_path = f'/home/{username}/multi-vector-retrieval-gpu/baseline/ColBERT'
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    colbert_project_path = f'/home/{username}/multi-vector-retrieval-GPU/baseline/ColBERT'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     pretrain_index_path = os.path.join(raw_data_path, 'colbert-pretrain/colbertv2.0')
     document_data_path = os.path.join(raw_data_path, f'{dataset}/document')
-    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
     base_embedding_path = os.path.join(embedding_path, 'base_embedding')
     query_embedding_filename = os.path.join(embedding_path, 'query_embedding.npy')
-    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Index/{dataset}'
-    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Index/{dataset}'
+    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
 
     n_gpu = torch.cuda.device_count()
     # torch.set_num_threads(12)
@@ -183,9 +183,9 @@ def encode_query_cpu(username: str, dataset: str):
 
 
 def build_index_generate(username: str, dataset: str):
-    colbert_project_path = f'/home/{username}/multi-vector-retrieval-gpu/baseline/ColBERT'
-    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Index/{dataset}'
-    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+    colbert_project_path = f'/home/{username}/multi-vector-retrieval-GPU/baseline/ColBERT'
+    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Index/{dataset}'
+    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
 
     n_gpu = torch.cuda.device_count()
     # torch.set_num_threads(12)
@@ -200,14 +200,14 @@ def build_index_generate(username: str, dataset: str):
 
 
 def load_training_query(username: str, dataset: str, n_sample_query: int):
-    colbert_project_path = f'/home/{username}/multi-vector-retrieval-gpu/baseline/ColBERT'
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    colbert_project_path = f'/home/{username}/multi-vector-retrieval-GPU/baseline/ColBERT'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     pretrain_index_path = os.path.join(raw_data_path, 'colbert-pretrain/colbertv2.0')
     document_data_path = os.path.join(raw_data_path, f'{dataset}/document')
-    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
     base_embedding_path = os.path.join(embedding_path, 'base_embedding')
     query_embedding_filename = os.path.join(embedding_path, 'query_embedding.npy')
-    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Index/{dataset}'
+    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Index/{dataset}'
 
     n_gpu = torch.cuda.device_count()
     print(f'# gpu {n_gpu}')
@@ -231,14 +231,14 @@ def load_training_query(username: str, dataset: str, n_sample_query: int):
 
 
 def load_dev_query(username: str, dataset: str, n_sample_query: int):
-    colbert_project_path = f'/home/{username}/multi-vector-retrieval-gpu/baseline/ColBERT'
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    colbert_project_path = f'/home/{username}/multi-vector-retrieval-GPU/baseline/ColBERT'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     pretrain_index_path = os.path.join(raw_data_path, 'colbert-pretrain/colbertv2.0')
     document_data_path = os.path.join(raw_data_path, f'{dataset}/document')
-    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
     base_embedding_path = os.path.join(embedding_path, 'base_embedding')
     query_embedding_filename = os.path.join(embedding_path, 'query_embedding.npy')
-    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Index/{dataset}'
+    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Index/{dataset}'
 
     n_gpu = torch.cuda.device_count()
     print(f'# gpu {n_gpu}')
@@ -264,15 +264,15 @@ def load_dev_query(username: str, dataset: str, n_sample_query: int):
 def retrieval_official(username: str, dataset: str, topk: int, search_config_l: list,
                        n_centroid: int, n_bit: int, n_pid_kmeans: int,
                        search_gpu: bool):
-    colbert_project_path = f'/home/{username}/multi-vector-retrieval-gpu/baseline/ColBERT'
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    colbert_project_path = f'/home/{username}/multi-vector-retrieval-GPU/baseline/ColBERT'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     pretrain_index_path = os.path.join(raw_data_path, 'colbert-pretrain/colbertv2.0')
     document_data_path = os.path.join(raw_data_path, f'{dataset}/document')
-    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
     query_embedding_filename = os.path.join(embedding_path, 'query_embedding.npy')
-    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Index/{dataset}'
-    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
-    result_answer_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/answer'
+    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Index/{dataset}'
+    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
+    result_answer_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/answer'
     query_text_filename = os.path.join(document_data_path, 'queries.dev.tsv')
 
     n_gpu = torch.cuda.device_count()
@@ -370,7 +370,7 @@ def retrieval_official(username: str, dataset: str, topk: int, search_config_l: 
             }
 
             method_performance_name = f'{dataset}-retrieval-{module_name}-top{topk}-{build_index_suffix}-{retrieval_suffix}.json'
-            result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+            result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
             performance_filename = os.path.join(result_performance_path, method_performance_name)
             with open(performance_filename, "w") as f:
                 json.dump(retrieval_info_m, f)
@@ -382,7 +382,7 @@ def retrieval_official(username: str, dataset: str, topk: int, search_config_l: 
             if success_l:
                 df['success'] = success_l
             single_query_performance_name = f'{dataset}-retrieval-{module_name}-top{topk}-{build_index_suffix}-{retrieval_suffix}.csv'
-            result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/single_query_performance'
+            result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/single_query_performance'
             single_query_performance_filename = os.path.join(result_performance_path, single_query_performance_name)
             df.to_csv(single_query_performance_filename, index=True)
 

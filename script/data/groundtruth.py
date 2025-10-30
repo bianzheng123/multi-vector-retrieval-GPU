@@ -39,7 +39,7 @@ def merge_result(final_distance_l: np.ndarray, final_id_l: np.ndarray,
 
 def gnd_cpp(username: str, dataset: str, topk_l: list, n_batch_read: int = 1,
             compile_file: bool = True, module_name='BruteForceProgressive'):
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
     query_l = np.load(os.path.join(embedding_dir, 'query_embedding.npy'))
 
     base_embedding_dir = os.path.join(embedding_dir, 'base_embedding')
@@ -130,7 +130,7 @@ def save_gnd_npy(gnd_dist_l: np.ndarray, gnd_id_l: np.ndarray, username: str, da
     gnd_dist_l = gnd_dist_l.astype('float32')
     gnd_id_l = gnd_id_l.astype('int32')
 
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
     np.save(os.path.join(embedding_dir, f'gnd_distance_top{topk}.npy'), gnd_dist_l)
     np.save(os.path.join(embedding_dir, f'gnd_id_top{topk}.npy'), gnd_id_l)
 
@@ -143,10 +143,10 @@ def save_gnd_tsv(gnd_dist_l: np.ndarray, gnd_id_l: np.ndarray, username: str, da
     build_index_suffix = ''
     retrieval_suffix = ''
 
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
     groundtruth_filename = os.path.join(embedding_dir, f'{dataset}-groundtruth-top{topk}-{build_index_suffix}-{retrieval_suffix}.tsv')
 
-    rawdata_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    rawdata_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     query_text_filename = os.path.join(rawdata_path, f'{dataset}/document/queries.dev.tsv')
     if os.path.isfile(query_text_filename):
         qID_l = []

@@ -41,7 +41,7 @@ def get_sample_vecs_l(sample_itemID_l: list, DEFAULT_CHUNKSIZE: int, username: s
         else:
             chunkID2offset_m[chunkID].append(chunk_offset)
 
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}/'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}/'
     base_embedding_dir = os.path.join(embedding_dir, 'base_embedding')
 
     item_n_vecs_l = np.load(os.path.join(embedding_dir, 'doclens.npy')).astype(np.uint64)
@@ -119,7 +119,7 @@ def item_code_in_chunk(code_l: np.ndarray, itemlen_l: np.ndarray, itemID: int):
 
 
 def sample_vector(username: str, dataset: str):
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}/'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}/'
     vec_dim = np.load(os.path.join(embedding_dir, 'base_embedding', f'encoding0_float32.npy')).shape[1]
     item_n_vec_l = np.load(os.path.join(embedding_dir, f'doclens.npy')).astype(np.uint32)
     n_item = item_n_vec_l.shape[0]
@@ -148,7 +148,7 @@ def faiss_kmeans(sample_vecs_l: np.ndarray, n_centroid: int):
 
 
 def compute_assignment(username: str, dataset: str, centroid_l: np.ndarray):
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}/'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}/'
     base_embedding_dir = os.path.join(embedding_dir, 'base_embedding')
 
     n_centroid = len(centroid_l)

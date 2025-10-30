@@ -41,18 +41,18 @@ class CollectionIndexerGenerate():
         self.username = username
         self.dataset = dataset
 
-        embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+        embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
         self.item_n_vec_l = np.load(os.path.join(embedding_path, 'doclens.npy')).astype(np.int32)
         self.n_item = len(self.item_n_vec_l)
         print(f'n_item {self.n_item}')
 
         self.use_gpu = True
 
-        self.index_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Index/{dataset}/plaid'
+        self.index_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Index/{dataset}/plaid'
         os.system(f'rm -r {self.index_path}')
         os.makedirs(self.index_path, exist_ok=False)
 
-        embedding_path = f'/home/{self.username}/Dataset/multi-vector-retrieval-gpu/Embedding/{self.dataset}'
+        embedding_path = f'/home/{self.username}/Dataset/multi-vector-retrieval-GPU/Embedding/{self.dataset}'
         vec_l = np.load(os.path.join(embedding_path, 'base_embedding', 'encoding0_float32.npy'))
         self.vec_dim = vec_l.shape[1]
         self.nbits = 2
@@ -92,7 +92,7 @@ class CollectionIndexerGenerate():
         num_partitions is the number of centroids to be generated.
         '''
 
-        embedding_path = f'/home/{self.username}/Dataset/multi-vector-retrieval-gpu/Embedding/{self.dataset}'
+        embedding_path = f'/home/{self.username}/Dataset/multi-vector-retrieval-GPU/Embedding/{self.dataset}'
         item_n_vec0_l = np.load(os.path.join(embedding_path, 'base_embedding', 'doclens0.npy'))
         self.chunk_size = len(item_n_vec0_l)
         n_item = len(self.item_n_vec_l)
@@ -275,9 +275,9 @@ class CollectionIndexerGenerate():
             {CHUNK#}.residuals.pt:  16-bits residual for each embedding in chunk
             doclens.{CHUNK#}.pt:    number of embeddings within each passage in chunk
         '''
-        base_dir = f'/home/{self.username}/Dataset/multi-vector-retrieval-gpu/Embedding/{self.dataset}/base_embedding'
+        base_dir = f'/home/{self.username}/Dataset/multi-vector-retrieval-GPU/Embedding/{self.dataset}/base_embedding'
         n_chunk = get_n_chunk(base_dir)
-        embedding_path = f'/home/{self.username}/Dataset/multi-vector-retrieval-gpu/Embedding/{self.dataset}'
+        embedding_path = f'/home/{self.username}/Dataset/multi-vector-retrieval-GPU/Embedding/{self.dataset}'
 
         encode_passage_time = 0
         with self.saver.thread():
@@ -432,7 +432,7 @@ def get_sample_vecs_l(sample_itemID_l: list, DEFAULT_CHUNKSIZE: int, username: s
         else:
             chunkID2offset_m[chunkID].append(chunk_offset)
 
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}/'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}/'
     base_embedding_dir = os.path.join(embedding_dir, 'base_embedding')
 
     item_n_vecs_l = np.load(os.path.join(embedding_dir, 'doclens.npy')).astype(np.uint64)

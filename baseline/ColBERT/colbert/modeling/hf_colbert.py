@@ -58,7 +58,7 @@ def find_class_names(model_type, class_type):
 def class_factory(name_or_path):
     # loadedConfig  = AutoConfig.from_pretrained(name_or_path, force_download=True, proxies={'https': '172.18.64.1:22222'})
     import os
-    # raw_data_path = f'/home/zhengbian/Dataset/multi-vector-retrieval-gpu/RawData'
+    # raw_data_path = f'/home/zhengbian/Dataset/multi-vector-retrieval-GPU/RawData'
     # pretrain_index_path = os.path.join(raw_data_path, 'colbert-pretrain/colbertv2.0')
     # loadedConfig  = AutoConfig.from_pretrained(pretrain_index_path)
     loadedConfig  = AutoConfig.from_pretrained(name_or_path)

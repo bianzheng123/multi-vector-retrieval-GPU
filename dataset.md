@@ -14,13 +14,13 @@
 
 similar as Lotte-lifestyle
 
-Put the raw dataset in /home/xxx/Dataset/multi-vector-retrieval-gpu/RawData/lotte
+Put the raw dataset in /home/xxx/Dataset/multi-vector-retrieval-GPU/RawData/lotte
 
 https://downloads.cs.stanford.edu/nlp/data/colbert/colbertv2/lotte.tar.gz
 
 File needed to be transformed manually:
 
-Note that the base directory is /home/xxx/Dataset/multi-vector-retrieval-gpu/RawData/lotte
+Note that the base directory is /home/xxx/Dataset/multi-vector-retrieval-GPU/RawData/lotte
 
 | Original file                          | Transformed file           |
 | -------------------------------------- | -------------------------- |

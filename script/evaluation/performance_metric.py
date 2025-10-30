@@ -41,7 +41,7 @@ used to count the mrr
 
 
 def read_mrr_groundtruth_jsonl(dataset: str, username: str):
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     gnd_jsonl_filename = os.path.join(raw_data_path, f'{dataset}/document/queries.gnd.jsonl')
     end2end_gnd_m = {}
     with open(gnd_jsonl_filename, 'r', encoding="utf-8") as f:
@@ -54,7 +54,7 @@ def read_mrr_groundtruth_jsonl(dataset: str, username: str):
 
 
 def read_mrr_passageID_l(dataset: str, username: str):
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     collection_filename = os.path.join(raw_data_path, f'{dataset}/document/collection.tsv')
     end2end_passageID_l = []
     with open(collection_filename, 'r', encoding="utf-8") as f:
@@ -174,7 +174,7 @@ used to count the success
 
 
 def read_end2end_success_gnd(dataset: str, username: str):
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     gnd_jsonl_filename = os.path.join(raw_data_path, f'{dataset}/document/queries_short_answer.gnd.jsonl')
     end2end_gnd_m = {}
     with open(gnd_jsonl_filename, 'r', encoding="utf-8") as f:
@@ -187,7 +187,7 @@ def read_end2end_success_gnd(dataset: str, username: str):
 
 
 def read_end2end_success_passageID_l(dataset: str, username: str):
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     collection_filename = os.path.join(raw_data_path, f'{dataset}/document/collection.tsv')
     passageID_local2global_l = []
     passage_l = []
@@ -293,8 +293,8 @@ used to count the end2end and vector set search accuracy
 
 
 def load_groundtruth(username: str, dataset: str, topk: int):
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
-    rawdata_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData/{dataset}'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
+    rawdata_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData/{dataset}'
 
     mrr_gnd_filename = os.path.join(rawdata_path, 'document', 'queries.gnd.jsonl')
     has_mrr_groundtruth = os.path.exists(mrr_gnd_filename)
@@ -330,7 +330,7 @@ def load_groundtruth(username: str, dataset: str, topk: int):
 def count_accuracy(username: str, dataset: str, topk: int,
                    method_name: str, build_index_suffix: str, retrieval_suffix: str,
                    mrr_gnd: tuple, success_gnd: tuple, recall_gnd_id_m: dict):
-    answer_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/answer'
+    answer_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/answer'
 
     has_mrr_groundtruth, mrr_groundtruth_m, mrr_passageID_l = mrr_gnd
     has_success_groundtruth, success_gnd_m, success_passageID_local2global_l, success_passage_l = success_gnd
@@ -397,9 +397,9 @@ def count_accuracy_by_baseline_ip(username: str, dataset: str, topk_l: list,
                                   method_name: str,
                                   build_index_suffix: str,
                                   retrieval_suffix_l: list, retrieval_config_l: list):
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
-    answer_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/answer'
-    performance_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
+    answer_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/answer'
+    performance_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
 
     for topk_i, topk in enumerate(topk_l, 0):
         recall_performance_l = []
@@ -449,10 +449,10 @@ def count_accuracy_by_baseline_ip(username: str, dataset: str, topk_l: list,
 def count_accuracy_by_ID(username: str, dataset: str, topk: int,
                          method_name: str, baseline_id_l: list,
                          build_index_suffix: str, retrieval_suffix: str, retrieval_result_m: dict):
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
-    rawdata_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData/{dataset}'
-    answer_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/answer'
-    performance_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
+    rawdata_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData/{dataset}'
+    answer_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/answer'
+    performance_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
 
     has_text_groundtruth = os.path.exists(rawdata_path)
 
@@ -503,8 +503,8 @@ def count_accuracy_by_ID(username: str, dataset: str, topk: int,
 def count_accuracy_by_ID_ip(username: str, dataset: str, topk: int,
                             method_name: str, baseline_id_l: list,
                             build_index_suffix: str, retrieval_suffix: str, retrieval_result_m: dict):
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
-    performance_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
+    performance_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
 
     query_l = np.load(os.path.join(embedding_dir, 'query_embedding.npy'))
     vec_dim = query_l.shape[2]
@@ -636,7 +636,7 @@ if __name__ == '__main__':
     module_name = 'AggTopk'
     for dataset in dataset_l:
         for build_index_config in build_index_parameter_l:
-            embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+            embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
             vec_dim = np.load(os.path.join(embedding_dir, 'base_embedding', f'encoding0_float32.npy')).shape[1]
             n_item = np.load(os.path.join(embedding_dir, f'doclens.npy')).shape[0]
             item_n_vec_l = np.load(os.path.join(embedding_dir, f'doclens.npy')).astype(np.uint32)

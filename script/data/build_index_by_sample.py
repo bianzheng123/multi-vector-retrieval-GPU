@@ -38,7 +38,7 @@ def delete_file_if_exist(dire):
 
 
 def extract_gnd_mrr(username: str, dataset: str, query_offsetID_l: np.ndarray):
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     gnd_filename = os.path.join(raw_data_path, f'{dataset}/document/queries.gnd.jsonl')
     old_gnd_l = []
     with open(gnd_filename, 'r') as f:
@@ -54,7 +54,7 @@ def extract_gnd_mrr(username: str, dataset: str, query_offsetID_l: np.ndarray):
 
 
 def extract_gnd_openqa(username: str, dataset: str, query_offsetID_l: np.ndarray):
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     gnd_filename = os.path.join(raw_data_path, f'{dataset}/document/queries_short_answer.gnd.jsonl')
     old_gnd_l = []
     with open(gnd_filename, 'r') as f:
@@ -69,7 +69,7 @@ def extract_gnd_openqa(username: str, dataset: str, query_offsetID_l: np.ndarray
 
 def generate_data_by_sample(username: str, origin_dataset: str, new_dataset: str,
                             n_sample_item: int, n_sample_query: int):
-    raw_data_base_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    raw_data_base_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     delete_file_if_exist(os.path.join(raw_data_base_path, new_dataset))
     os.makedirs(os.path.join(raw_data_base_path, new_dataset, 'document'), exist_ok=False)
 
@@ -104,7 +104,7 @@ def generate_data_by_sample(username: str, origin_dataset: str, new_dataset: str
         os.system(f'cp {query_old_filename} {query_new_filename}')
         query_offsetID_l = np.arange(0, n_query)
 
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
     queries_gnd_json_l_filename = os.path.join(raw_data_path, f'{origin_dataset}/document/queries.gnd.jsonl')
     queries_short_answer_gnd_json_l_filename = os.path.join(raw_data_path,
                                                             f'{origin_dataset}/document/queries_short_answer.gnd.jsonl')
@@ -194,17 +194,17 @@ def generate_data_by_sample(username: str, origin_dataset: str, new_dataset: str
 def build_basic_index(username: str, origin_dataset: str, new_dataset: str, n_sample_item: int, n_sample_query: int,
                       topk_l: list,
                       n_centroid_f: str, n_bit: int, sample_pid_f: str):
-    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/Embedding'
+    embedding_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/Embedding'
     os.system(f'rm -r {embedding_path}/{new_dataset}')
 
-    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/Index'
+    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/Index'
     os.system(f'rm -r {index_path}/{new_dataset}')
 
-    rawdata_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/RawData'
+    rawdata_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/RawData'
     os.system(f'rm -r {rawdata_path}/{new_dataset}')
 
-    result_answer_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/answer'
-    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+    result_answer_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/answer'
+    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
     os.system(f'rm {result_answer_path}/{new_dataset}-*')
     os.system(f'rm {result_performance_path}/{new_dataset}-*')
 
@@ -315,7 +315,7 @@ if __name__ == '__main__':
     retrieval_parameter_l = config['retrieval_parameter_l']
     sample_dataset_info_l = config['sample_dataset_info_l']
 
-    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/RawData'
+    raw_data_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/RawData'
 
     module_name = 'BruteForceProgressive'
     util.compile_file(username=username, module_name=module_name, is_debug=True)

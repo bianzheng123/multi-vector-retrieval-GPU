@@ -102,6 +102,6 @@ def process_index(username: str, dataset: str, rootpath: str):
 if __name__ == '__main__':
     username = 'bianzheng'
     dataset = 'lotte'
-    rootpath = f"/home/{username}/multi-vector-retrieval-gpu"
+    rootpath = f"/home/{username}/multi-vector-retrieval-GPU"
     process_embedding(username=username, dataset=dataset, rootpath=rootpath)
     process_index(username=username, dataset=dataset, rootpath=rootpath)

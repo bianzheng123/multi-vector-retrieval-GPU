@@ -50,16 +50,16 @@ def approximate_solution_retrieval(username: str, dataset: str,
     print(command)
 
     os.system(command)
-    # os.system(f"compute-sanitizer --tool memcheck /home/{username}/multi-vector-retrieval-gpu/build/{method_name} "
+    # os.system(f"compute-sanitizer --tool memcheck /home/{username}/multi-vector-retrieval-GPU/build/{method_name} "
     #           f"-username {username} -dataset {dataset} -method-name {method_name} -build-index-suffix {build_index_suffix} "
     #           f"-topk {topk} -nprobe {nprobe} -probe_topk {probe_topk}")
     retrieval_suffix = f'nprobe_{nprobe}-probe_topk_{probe_topk}-n_thread_{n_thread}'
     retrieval_suffix = f'{retrieval_suffix}-profile' if is_profile else retrieval_suffix
-    performance_fname = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/answer/' \
+    performance_fname = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/answer/' \
                         f'{dataset}-{method_name}-performance-top{topk}-{build_index_suffix}-{retrieval_suffix}.tsv'
     performance_df = pd.read_csv(performance_fname, delimiter='\t')
 
-    performance_single_result_fname = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/answer/' \
+    performance_single_result_fname = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/answer/' \
                                       f'{dataset}-{method_name}-performance-top{topk}-{build_index_suffix}-{retrieval_suffix}.txt'
     single_result_m = resolve_performance_file(performance_single_result_fname=performance_single_result_fname)
 
@@ -82,14 +82,14 @@ def approximate_solution_build_index(username: str, dataset: str,
                                      module: object,
                                      method_name: str,
                                      build_index_config: dict, build_index_suffix: str):
-    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Index/{dataset}/{method_name}-{build_index_suffix}'
+    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Index/{dataset}/{method_name}-{build_index_suffix}'
     if os.path.exists(index_path):
         print("exist index, skip building")
         return
     print(f"start insert item")
     start_time = time.time()
 
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
     item_n_vec_l = np.load(os.path.join(embedding_dir, f'doclens.npy')).astype(np.uint32)
     n_item = len(item_n_vec_l)
     n_vecs = np.sum(item_n_vec_l)
@@ -113,7 +113,7 @@ def approximate_solution_build_index(username: str, dataset: str,
     build_index_time_sec = end_time - start_time
     print(f"insert time spend {build_index_time_sec:.3f}s")
 
-    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Index/{dataset}/{method_name}-{build_index_suffix}'
+    index_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Index/{dataset}/{method_name}-{build_index_suffix}'
     os.makedirs(index_path, exist_ok=True)
     np.save(os.path.join(index_path, 'item_n_vec_l.npy'), item_n_vec_l.astype(np.uint32))
     np.save(os.path.join(index_path, 'centroid_l.npy'), centroid_l)
@@ -122,7 +122,7 @@ def approximate_solution_build_index(username: str, dataset: str,
     np.save(os.path.join(index_path, 'residual_code_l.npy'), residual_code_l)
     ivf_index.save(os.path.join(index_path, f'ivf.index'))
 
-    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
     build_index_performance_filename = os.path.join(result_performance_path,
                                                     f'{dataset}-build_index-{method_name}-{build_index_suffix}.json')
 
@@ -147,7 +147,7 @@ def retrieval_compute_sanitizer_func(username: str, dataset: str,
                                      n_thread: int,
                                      is_profile: bool):
     is_profile_str = 'true' if is_profile else 'false'
-    command = f"compute-sanitizer --tool memcheck /home/{username}/multi-vector-retrieval-gpu/build/{method_name} " \
+    command = f"compute-sanitizer --tool memcheck /home/{username}/multi-vector-retrieval-GPU/build/{method_name} " \
               f"-username {username} -dataset {dataset} -method-name {method_name} " \
               f"-num-centroid {n_centroid} -num-bit {n_bit} " \
               f"-topk {topk} -nprobe {nprobe} -probe_topk {probe_topk} -n_thread {n_thread} " \
@@ -164,7 +164,7 @@ def retrieval_nsight_system_func(username: str, dataset: str,
     is_profile_str = 'true' if is_profile else 'false'
     command = f"sudo nsys profile --force-overwrite true --gpu-metrics-devices=all --gpu-metrics-set=ga10x-gfxt " \
               f"--gpuctxsw=true --stats=true -o {method_name}-{dataset}-n_thread_{n_thread}-nsys-report " \
-              f"/home/{username}/multi-vector-retrieval-gpu/build/{method_name} " \
+              f"/home/{username}/multi-vector-retrieval-GPU/build/{method_name} " \
               f"-username {username} -dataset {dataset} -method-name {method_name} " \
               f"-num-centroid {n_centroid} -num-bit {n_bit} " \
               f"-topk {topk} -nprobe {nprobe} -probe_topk {probe_topk} -n_thread {n_thread} " \
@@ -181,7 +181,7 @@ def retrieval_nsight_compute_func(username: str, dataset: str,
     is_profile_str = 'true' if is_profile else 'false'
     command = f"sudo /home/{username}/software/anaconda3/envs/billion_MVR/bin/ncu --nvtx " \
               f"--nvtx-include \"filter-compute_score/\" -o {method_name}-{dataset}-n_thread_{n_thread}-ncu-report " \
-              f"/home/{username}/multi-vector-retrieval-gpu/build/{method_name} " \
+              f"/home/{username}/multi-vector-retrieval-GPU/build/{method_name} " \
               f"-username {username} -dataset {dataset} -method-name {method_name} " \
               f"-num-centroid {n_centroid} -num-bit {n_bit} " \
               f"-topk {topk} -nprobe {nprobe} -probe_topk {probe_topk} -n_thread {n_thread} " \
@@ -196,7 +196,7 @@ def retrieval_no_profile_func(username: str, dataset: str,
                               n_thread: int,
                               is_profile: bool):
     is_profile_str = 'true' if is_profile else 'false'
-    command = f"/home/{username}/multi-vector-retrieval-gpu/build/{method_name} " \
+    command = f"/home/{username}/multi-vector-retrieval-GPU/build/{method_name} " \
               f"-username {username} -dataset {dataset} -method-name {method_name} " \
               f"-num-centroid {n_centroid} -num-bit {n_bit} " \
               f"-topk {topk} -nprobe {nprobe} -probe_topk {probe_topk} -n_thread {n_thread} " \
@@ -326,7 +326,7 @@ if __name__ == '__main__':
     util.compile_file(username=username, module_name=build_index_module_name, is_debug=is_debug, move_path=move_path)
     for dataset in dataset_l:
         for build_index_config in build_index_parameter_l:
-            embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+            embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
             vec_dim = np.load(os.path.join(embedding_dir, 'base_embedding', f'encoding0_float32.npy')).shape[1]
             if vec_dim % 4 != 0:
                 raise Exception(

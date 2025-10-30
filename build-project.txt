@@ -46,11 +46,11 @@ to install rapids/cuvs, build from source
 ./build.sh libcuvs --no-mg --allgpuarch
 
 
-nsys profile --gpu-metrics-devices=all --gpu-metrics-set=ga10x-gfxt --gpuctxsw=true --stats=true -o GPGPU-lotte_profile /home/zhengbian/multi-vector-retrieval-gpu/build/GPGPU -username zhengbian -dataset lotte -method-name GPGPU -build-index-suffix n_centroid_131072-n_bit_2 -topk 10 -nprobe 8 -probe_topk 600
+nsys profile --gpu-metrics-devices=all --gpu-metrics-set=ga10x-gfxt --gpuctxsw=true --stats=true -o GPGPU-lotte_profile /home/zhengbian/multi-vector-retrieval-GPU/build/GPGPU -username zhengbian -dataset lotte -method-name GPGPU -build-index-suffix n_centroid_131072-n_bit_2 -topk 10 -nprobe 8 -probe_topk 600
 
-/home/zhengbian/multi-vector-retrieval-gpu/build/GPGPU -username zhengbian -dataset lotte -method-name GPGPU -build-index-suffix n_centroid_131072-n_bit_2 -topk 10 -nprobe 8 -probe_topk 600
+/home/zhengbian/multi-vector-retrieval-GPU/build/GPGPU -username zhengbian -dataset lotte -method-name GPGPU -build-index-suffix n_centroid_131072-n_bit_2 -topk 10 -nprobe 8 -probe_topk 600
 
-ncu --metrics all /home/bianzheng/multi-vector-retrieval-gpu/build/GPGPU -username bianzheng -dataset lotte-500-gnd -method-name GPGPU -build-index-suffix n_centroid_2048-n_bit_2 -topk 10 -nprobe 64 -probe_topk 20
+ncu --metrics all /home/bianzheng/multi-vector-retrieval-GPU/build/GPGPU -username bianzheng -dataset lotte-500-gnd -method-name GPGPU -build-index-suffix n_centroid_2048-n_bit_2 -topk 10 -nprobe 64 -probe_topk 20
 
 
 cmake -DZLIB_LIBRARY=/usr/lib/x86_64-linux-gnu/libz.so -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ..

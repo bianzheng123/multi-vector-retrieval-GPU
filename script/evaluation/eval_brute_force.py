@@ -80,7 +80,7 @@ def approximate_solution_retrieval_outter(username: str, dataset: str,
     mrr_gnd, success_gnd, recall_gnd_id_m = performance_metric.load_groundtruth(username=username, dataset=dataset,
                                                                                 topk=topk)
 
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}'
     method_id_m = performance_metric.read_method_tsv(base_dir=embedding_dir, dataset=dataset, method_name='groundtruth',
                                                      topk=topk, build_index_suffix='',
                                                      retrieval_suffix='')
@@ -95,7 +95,7 @@ def approximate_solution_retrieval_outter(username: str, dataset: str,
     retrieval_info_m = {'n_query': len(queryID_l), 'topk': topk,
                         'search_accuracy': search_accuracy_m}
     method_performance_name = f'{dataset}-retrieval-BruteForce-top{topk}-{build_index_suffix}-{retrieval_suffix}.json'
-    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Result/performance'
+    result_performance_path = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Result/performance'
     performance_filename = os.path.join(result_performance_path, method_performance_name)
     with open(performance_filename, "w") as f:
         json.dump(retrieval_info_m, f)

@@ -100,9 +100,6 @@ find_package(pybind11)
 
 set(ZLIB_LIBRARY /usr/lib/x86_64-linux-gnu/libz.so)
 
-#add_subdirectory(baseline/emvb/external/faiss)
-#include_directories(baseline/emvb/external/faiss)
-
 add_subdirectory(deps/cmd_line_parser)
 include_directories(deps/cmd_line_parser/include)
 
@@ -118,18 +115,6 @@ find_package(OpenMP REQUIRED)
 #    set(CMAKE_CUDA_STANDARD 20)
 set(CMAKE_CUDA_STANDARD 17)
 set(CMAKE_CUDA_STANDARD_REQUIRED ON)
-
-add_definitions(-DUSE_GPU)
-
-set(USE_RETRIEVAL_GPU ON)
-if (USE_RETRIEVAL_GPU)
-    add_definitions(-DUSE_RETRIEVAL_GPU)
-endif ()
-
-set(OLD_GPU OFF)
-if (OLD_GPU)
-    add_definitions(-DOLD_GPU)
-endif ()
 
 set(CMAKE_CUDA_COMPILER /usr/local/cuda-12.6/bin/nvcc)
 

@@ -32,7 +32,7 @@ def compute_assignment(username: str, dataset: str,
                        module: object,
                        cutoff_l: np.ndarray, weight_l: np.ndarray, n_bit: int,
                        vec_dim: int):
-    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-gpu/Embedding/{dataset}/'
+    embedding_dir = f'/home/{username}/Dataset/multi-vector-retrieval-GPU/Embedding/{dataset}/'
     base_embedding_dir = os.path.join(embedding_dir, 'base_embedding')
 
     doclens = np.load(os.path.join(embedding_dir, 'doclens.npy'))

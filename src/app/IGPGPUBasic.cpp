@@ -35,18 +35,18 @@ std::map<std::string, std::string> getFilenameMap(
 
   char index_path[512];
   sprintf(index_path,
-          "/home/%s/Dataset/multi-vector-retrieval-gpu/Index/%s/%s-%s",
+          "/home/%s/Dataset/multi-vector-retrieval-GPU/Index/%s/%s-%s",
           username.c_str(), dataset.c_str(),
           method_name.c_str(), build_index_suffix.c_str());
 
   char embedding_path[512];
   sprintf(embedding_path,
-          "/home/%s/Dataset/multi-vector-retrieval-gpu/Embedding/%s",
+          "/home/%s/Dataset/multi-vector-retrieval-GPU/Embedding/%s",
           username.c_str(), dataset.c_str());
 
   char answer_path[512];
   sprintf(answer_path,
-          "/home/%s/Dataset/multi-vector-retrieval-gpu/Result/answer",
+          "/home/%s/Dataset/multi-vector-retrieval-GPU/Result/answer",
           username.c_str());
 
   std::map<std::string, std::string> filename_m;

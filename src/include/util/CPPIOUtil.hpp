@@ -10,7 +10,7 @@
 namespace VectorSetSearch {
 std::vector<uint32_t> readQueryID(const std::string username, const std::string dataset) {
   char location[256];
-  sprintf(location, "/home/%s/Dataset/multi-vector-retrieval-gpu/RawData/%s/document/queries.dev.tsv",
+  sprintf(location, "/home/%s/Dataset/multi-vector-retrieval-GPU/RawData/%s/document/queries.dev.tsv",
           username.c_str(), dataset.c_str());
 
   std::vector<uint32_t> qID_l;
