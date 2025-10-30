@@ -2,12 +2,6 @@
 ## Introduction
 This is a fast GPU-based algorithm for the multi-vector retrieval problem based on ColBERT.
 
-## Requirement (includes but not limited)
-
-- Linux OS (Ubuntu-20.04)
-- pybind, eigen, spdlog, CUDA 
-- some important libraries 
-
 ## How to build and run
 
 The experimental python version is 3.8
@@ -66,3 +60,4 @@ You can learn how to use the proxychains for climbing the "wall"
 cmake -DCMAKE_BUILD_TYPE=Debug ..
 
 7. if you find the error `AttributeError: module 'faiss' has no attribute 'StandardGpuResources'`, or find the error about the matrix multiplication for calling the openblas, then you need to uninstall faiss-gpu in pip version and install the faiss-gpu using conda command, `pip install faiss-gpu-cu12`
+
