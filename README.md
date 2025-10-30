@@ -25,7 +25,6 @@ Install the necessary library when the system reports an error
 
 - `script/data/build_index.py`, build the index of plaid, it also generates the embedding. The embeddings are used to build the index of GIGP. 
 - `script/data/build_index_by_sample.py`, if you want to test the program in a small dataset, use this one
-- `script/evaluation/eval_igp.py`, 
 - `script/evaluation/eval_igp_gpu_basic.py`, the basic solution 
 - `script/evaluation/eval_igp_gpu_pp.py`, the proposed advanced solution 
 - `script/evaluation/eval_plaid_cpu.py`, cpu version of PLAID 
