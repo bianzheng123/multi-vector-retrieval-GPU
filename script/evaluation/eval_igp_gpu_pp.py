@@ -223,29 +223,10 @@ if __name__ == '__main__':
                 # {'n_centroid_f': lambda x: int(2 ** np.floor(np.log2(16 * np.sqrt(x)))), 'n_bit': 8},
             ],
             'retrieval_parameter_l': [
-                # {'nprobe': 1, 'probe_topk': 600, 'n_thread': 2},
-                # {'nprobe': 2, 'probe_topk': 600, 'n_thread': 2},
-                # {'nprobe': 4, 'probe_topk': 600, 'n_thread': 2},
-                # {'nprobe': 6, 'probe_topk': 600, 'n_thread': 2},
-                # {'nprobe': 8, 'probe_topk': 600, 'n_thread': 2},
-                # {'nprobe': 10, 'probe_topk': 600, 'n_thread': 2},
-                # {'nprobe': 12, 'probe_topk': 600, 'n_thread': 2},
-                # {'nprobe': 14, 'probe_topk': 600, 'n_thread': 2},
-                # {'nprobe': 16, 'probe_topk': 600, 'n_thread': 2},
-                # {'nprobe': 18, 'probe_topk': 600, 'n_thread': 2},
-
-                # {'nprobe': 4, 'probe_topk': 200, 'n_thread': 1},
                 {'nprobe': 4, 'probe_topk': 200, 'n_thread': 2},
-                {'nprobe': 4, 'probe_topk': 200, 'n_thread': 3},
-                {'nprobe': 4, 'probe_topk': 200, 'n_thread': 4},
-                {'nprobe': 4, 'probe_topk': 200, 'n_thread': 5},
-                # {'nprobe': 4, 'probe_topk': 200, 'n_thread': 6},
-                # {'nprobe': 4, 'probe_topk': 200, 'n_thread': 7},
-                # {'nprobe': 4, 'probe_topk': 200, 'n_thread': 8},
-                # {'nprobe': 4, 'probe_topk': 200, 'n_thread': 9},
-                # {'nprobe': 4, 'probe_topk': 200, 'n_thread': 10},
+                {'nprobe': 16, 'probe_topk': 1400, 'n_thread': 2},
             ],
-            'grid_search': True,
+            'grid_search': False,
             'grid_search_para': {
                 10: {
                     'nprobe': [1, 2, 4, 8, 16, 32],
@@ -309,7 +290,7 @@ if __name__ == '__main__':
             }
         }
     }
-    host_name = 'local'
+    host_name = 'dbg'
     config = config_l[host_name]
 
     username = config['username']

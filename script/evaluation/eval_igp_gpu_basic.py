@@ -208,17 +208,6 @@ if __name__ == '__main__':
                 # {'n_centroid_f': lambda x: int(2 ** np.floor(np.log2(16 * np.sqrt(x)))), 'n_bit': 8},
             ],
             'retrieval_parameter_l': [
-                # {'nprobe': 1, 'probe_topk': 600},
-                # {'nprobe': 2, 'probe_topk': 600},
-                # {'nprobe': 4, 'probe_topk': 600},
-                # {'nprobe': 6, 'probe_topk': 600},
-                # {'nprobe': 8, 'probe_topk': 600},
-                # {'nprobe': 10, 'probe_topk': 600},
-                # {'nprobe': 12, 'probe_topk': 600},
-                # {'nprobe': 14, 'probe_topk': 600},
-                # {'nprobe': 16, 'probe_topk': 600},
-                # {'nprobe': 18, 'probe_topk': 600},
-
                 {'nprobe': 4, 'probe_topk': 200},
                 {'nprobe': 16, 'probe_topk': 1400},
             ],
@@ -280,7 +269,7 @@ if __name__ == '__main__':
             }
         }
     }
-    host_name = 'local'
+    host_name = 'dbg'
     config = config_l[host_name]
 
     username = config['username']
