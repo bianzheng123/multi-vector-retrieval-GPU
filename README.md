@@ -35,11 +35,13 @@ Install the necessary library when the system reports an error
 
 See `dataset.md`
 
-## Prebuilt index
+[//]: # (## Prebuilt index)
 
-We have prepared the prebuild index of the evaluated dataset, i.e., LoTTE pooled, and MS MARCO, 
+[//]: # ()
+[//]: # (We have prepared the prebuild index of the evaluated dataset, i.e., LoTTE pooled, and MS MARCO, )
 
-TODO
+[//]: # ()
+[//]: # (TODO)
 
 ## Some tips for library installation:
 
