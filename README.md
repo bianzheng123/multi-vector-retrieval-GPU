@@ -13,8 +13,6 @@ The experimental python version is 3.8
 
 Note that you should move the project path as `/home/{username}/`
 
-Install the necessary library when the system reports an error
-
 ## Important scripts
 
 - `script/data/build_index.py`, build the index of plaid, it also generates the embedding. The embeddings are used to build the index of GIGP. 
@@ -60,4 +58,5 @@ You can learn how to use the proxychains for climbing the "wall"
 cmake -DCMAKE_BUILD_TYPE=Debug ..
 
 7. if you find the error `AttributeError: module 'faiss' has no attribute 'StandardGpuResources'`, or find the error about the matrix multiplication for calling the openblas, then you need to uninstall faiss-gpu in pip version and install the faiss-gpu using conda command, `pip install faiss-gpu-cu12`
+
 
